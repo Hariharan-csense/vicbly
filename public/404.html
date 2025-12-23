@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VCBLY - Page Not Found</title>
+  <script>
+    // Get the current path
+    const path = window.location.pathname;
+    
+    // If we're not already on the home page, try to redirect to the correct page
+    if (path !== '/') {
+      // Try to load the requested page
+      fetch(path)
+        .then(response => {
+          if (response.ok) {
+            // If the page exists, redirect to it
+            window.location.href = path;
+          } else {
+            // If the page doesn't exist, redirect to home after a short delay
+            setTimeout(() => {
+              window.location.href = '/';
+            }, 3000);
+          }
+        })
+        .catch(() => {
+          // If there's an error, redirect to home
+          window.location.href = '/';
+        });
+    }
+  </script>
+</head>
+<body>
+  <div style="text-align: center; padding: 50px;">
+    <h1>Loading...</h1>
+    <p>If you're not redirected automatically, <a href="/">click here</a> to go to the home page.</p>
+  </div>
+</body>
+</html>

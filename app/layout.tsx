@@ -7,6 +7,7 @@ import Footer from "@/components/footer"
 import ConsultationPopup from "@/components/consultation-popup"
 import WhatsAppChat from "@/components/whatsapp-chat"
 import Web3FormsScript from "@/components/web3forms-script"
+import RemoveFdProcessedId from "@/components/RemoveFdProcessedId"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -25,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <RemoveFdProcessedId />
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
